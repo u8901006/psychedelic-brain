@@ -64,7 +64,7 @@ index = f"""<!DOCTYPE html>
   <p class="count">共 {total} 期日報</p>
   <ul>{links}</ul>
   <div class="clinic-banner">
-    <a href="https://www.leepsyclinic.com/" target="_blank">🧠 力人身心診所 Leepsy Clinic</a>
+    <a href="https://www.leepsyclinic.com/" target="_blank">🧠 李政洋身心診所</a>
   </div>
   <footer>
     <p>Powered by PubMed + Zhipu AI · <a href="https://github.com/u8901006/psychedelic-brain">GitHub</a></p>

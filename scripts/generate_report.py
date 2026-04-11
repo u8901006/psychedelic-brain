@@ -400,7 +400,7 @@ def generate_html(analysis: dict, date_str: str) -> str:
   {"<div class='keywords-section'><div class='section-title'><div class='section-icon' style='background:rgba(139,92,246,0.10)'>#️⃣</div>關鍵詞</div><div class='keywords'>" + keywords_html + "</div></div>" if keywords_html else ""}
 
   <div class="clinic-banner">
-    <a href="{CLINIC_URL}" target="_blank">🧠 力人身心診所 Leepsy Clinic</a>
+    <a href="{CLINIC_URL}" target="_blank">🧠 李政洋身心診所</a>
     <p>專業精神醫學 · 迷幻輔助治療諮詢</p>
   </div>
 
