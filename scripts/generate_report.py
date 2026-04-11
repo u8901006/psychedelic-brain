@@ -220,24 +220,25 @@ def generate_html(analysis: dict, date_str: str) -> str:
 </div>"""
 
         tags_html = "".join(f'<span class="tag">{t}</span>' for t in tags)
-        utility_color = {"高": "#4CAF50", "中": "#F59E0B", "低": "#78909C"}.get(
-            clinical_utility, "#78909C"
-        )
+        utility_class = {
+            "高": "utility-high",
+            "中": "utility-mid",
+            "低": "utility-low",
+        }.get(clinical_utility, "utility-mid")
 
         top_picks_html += f"""<div class="news-card featured">
 <div class="card-header">
 <span class="rank-badge">#{rank}</span>
-<span class="card-emoji">{emoji}</span>
-<h3>{title_zh}</h3>
-<p class="title-en">{title_en}</p>
+<span class="emoji-icon">{emoji}</span>
+<span class="{utility_class}">{clinical_utility}實用性</span>
 </div>
-<p class="card-summary">{summary_text}</p>
+<h3>{title_zh}</h3>
+<p class="journal-source">{journal} &middot; {title_en}</p>
+<p>{summary_text}</p>
 {pico_html}
 <div class="card-footer">
-<span class="tag utility-tag" style="color:{utility_color};border-color:{utility_color}40;background:{utility_color}15">{clinical_utility}實用性</span>
 {tags_html}
-{"<p class='utility-reason'>" + utility_reason + "</p>" if utility_reason else ""}
-{"<a href='" + url + "' target='_blank'>→ PubMed</a>" if url else ""}
+{"<a href='" + url + "' target='_blank'>閱讀原文 →</a>" if url else ""}
 </div>
 </div>
 """
@@ -254,18 +255,23 @@ def generate_html(analysis: dict, date_str: str) -> str:
         url = paper.get("url", "")
 
         tags_html = "".join(f'<span class="tag">{t}</span>' for t in tags)
-        utility_color = {"高": "#4CAF50", "中": "#F59E0B", "低": "#78909C"}.get(
-            clinical_utility, "#78909C"
-        )
+        utility_class = {
+            "高": "utility-high",
+            "中": "utility-mid",
+            "低": "utility-low",
+        }.get(clinical_utility, "utility-mid")
 
         all_papers_html += f"""<div class="news-card">
-<h3><span class="card-emoji-sm">{emoji}</span> {title_zh}</h3>
-<p class="title-en-sm">{title_en}</p>
-<p class="card-summary">{summary_text}</p>
+<div class="card-header-row">
+<span class="emoji-sm">{emoji}</span>
+<span class="{utility_class} utility-sm">{clinical_utility}</span>
+</div>
+<h3>{title_zh}</h3>
+<p class="journal-source">{journal}</p>
+<p>{summary_text}</p>
 <div class="card-footer">
-<span class="tag utility-tag" style="color:{utility_color};border-color:{utility_color}40;background:{utility_color}15">{clinical_utility}</span>
 {tags_html}
-{"<a href='" + url + "' target='_blank'>→ PubMed</a>" if url else ""}
+{"<a href='" + url + "' target='_blank'>PubMed →</a>" if url else ""}
 </div>
 </div>
 """
@@ -275,104 +281,91 @@ def generate_html(analysis: dict, date_str: str) -> str:
         max_count = max(topic_dist.values()) if topic_dist else 1
         for topic, count in sorted(topic_dist.items(), key=lambda x: -x[1]):
             pct = int(count / max_count * 100)
-            topic_bars += f"""<div class="bar-row">
-<span class="bar-label">{topic}</span>
-<div class="bar-track"><div class="bar-fill" style="width:{pct}%"></div></div>
-<span class="bar-count">{count}</span>
+            topic_bars += f"""<div class="topic-row">
+<span class="topic-name">{topic}</span>
+<div class="topic-bar-bg"><div class="topic-bar" style="width:{pct}%"></div></div>
+<span class="topic-count">{count}</span>
 </div>
 """
 
-    keywords_html = "".join(f'<span class="keyword">#{k}</span>' for k in keywords)
-
-    summary_list_items = ""
-    if summary:
-        for s in summary.split("。"):
-            s = s.strip()
-            if s:
-                summary_list_items += f"<li>{s}</li>\n"
+    keywords_html = "".join(f'<span class="keyword">{k}</span>' for k in keywords)
 
     html = f"""<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Psychedelic Brain · 迷幻研究文獻日報 · {date_display}</title>
-<meta name="description" content="{date_display} 迷幻研究（Psychedelic Research）最新文獻日報，由 AI 自動分析生成"/>
-<meta property="og:title" content="Psychedelic Brain · {date_display}"/>
+<title>Psychedelic Brain &middot; 迷幻研究文獻日報 &middot; {date_display}</title>
+<meta name="description" content="{date_display} 迷幻研究（Psychedelic Research）最新文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<meta property="og:title" content="Psychedelic Brain &middot; {date_display}"/>
 <meta property="og:description" content="迷幻研究每日文獻精選"/>
 <meta property="og:type" content="article"/>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍄</text></svg>"/>
 <style>
+  :root {{ --bg: #f6f1e8; --surface: #fffaf2; --line: #d8c5ab; --text: #2b2118; --muted: #766453; --accent: #8c4f2b; --accent-soft: #ead2bf; --card-bg: color-mix(in srgb, var(--surface) 92%, white); }}
   *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
-  body {{ background: #0a0a12; color: #E8E0F0; font-family: -apple-system, "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }}
-  body::before {{ content: ''; position: fixed; bottom: -200px; right: -200px; width: 900px; height: 900px; border-radius: 50%; background: radial-gradient(circle, rgba(139,92,246,0.10) 0%, transparent 70%); pointer-events: none; z-index: 0; }}
-  body::after {{ content: ''; position: fixed; top: -250px; left: -250px; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(6,182,212,0.08) 0%, transparent 70%); pointer-events: none; z-index: 0; }}
+  body {{ background: radial-gradient(circle at top, #fff6ea 0, var(--bg) 55%, #ead8c6 100%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }}
   .container {{ position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }}
-
   header {{ display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }}
-  .logo {{ width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 28px; background: rgba(139,92,246,0.15); border: 1px solid rgba(139,92,246,0.25); flex-shrink: 0; box-shadow: 0 4px 24px rgba(139,92,246,0.2); }}
-  .header-text h1 {{ font-family: -apple-system, "SF Pro Display", sans-serif; font-size: 22px; font-weight: 700; color: #fff; letter-spacing: -0.3px; }}
+  .logo {{ width: 48px; height: 48px; border-radius: 14px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 20px rgba(140,79,43,0.25); }}
+  .header-text h1 {{ font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }}
   .header-meta {{ display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }}
   .badge {{ display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }}
-  .badge-date {{ background: rgba(139,92,246,0.15); border: 1px solid rgba(139,92,246,0.3); color: #A78BFA; }}
-  .badge-count {{ background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: #90A4AE; }}
-  .badge-source {{ background: transparent; color: #546E7A; font-size: 11px; padding: 0 4px; }}
-
-  .summary-card {{ background: rgba(139,92,246,0.05); border: 1px solid rgba(139,92,246,0.15); border-radius: 20px; padding: 28px 32px; margin-bottom: 32px; animation: fadeUp 0.5s ease 0.1s both; }}
-  .summary-card h2 {{ font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: #A78BFA; margin-bottom: 16px; }}
-  .summary-list {{ list-style: none; display: flex; flex-direction: column; gap: 10px; }}
-  .summary-list li {{ font-size: 14px; line-height: 1.7; color: #D4C8E8; padding-left: 18px; position: relative; }}
-  .summary-list li::before {{ content: '\\203A'; position: absolute; left: 0; color: #A78BFA; font-weight: 700; font-size: 16px; line-height: 1.4; }}
-
+  .badge-date {{ background: var(--accent-soft); border: 1px solid var(--line); color: var(--accent); }}
+  .badge-count {{ background: rgba(140,79,43,0.06); border: 1px solid var(--line); color: var(--muted); }}
+  .badge-source {{ background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }}
+  .summary-card {{ background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(61,36,15,0.06); animation: fadeUp 0.5s ease 0.1s both; }}
+  .summary-card h2 {{ font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }}
+  .summary-text {{ font-size: 15px; line-height: 1.8; color: var(--text); }}
   .section {{ margin-bottom: 36px; animation: fadeUp 0.5s ease both; }}
-  .section-title {{ display: flex; align-items: center; gap: 10px; font-family: -apple-system, "SF Pro Display", sans-serif; font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.07); }}
-  .section-icon {{ width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }}
-
-  .news-card {{ background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; padding: 22px 26px; margin-bottom: 12px; transition: background 0.2s, border-color 0.2s, transform 0.2s; }}
-  .news-card:hover {{ background: rgba(139,92,246,0.05); border-color: rgba(139,92,246,0.2); transform: translateY(-2px); }}
-  .news-card.featured {{ border-left: 3px solid #8B5CF6; }}
-  .news-card h3 {{ font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 6px; }}
-  .card-emoji {{ font-size: 16px; margin-right: 4px; }}
-  .card-emoji-sm {{ font-size: 14px; }}
-  .title-en {{ font-size: 12px; color: #78909C; font-style: italic; margin-bottom: 10px; }}
-  .title-en-sm {{ font-size: 11px; color: #78909C; font-style: italic; margin-bottom: 8px; }}
-  .card-summary {{ font-size: 13.5px; line-height: 1.75; color: #90A4AE; }}
+  .section-title {{ display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }}
+  .section-icon {{ width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }}
+  .news-card {{ background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(61,36,15,0.04); transition: background 0.2s, border-color 0.2s, transform 0.2s; }}
+  .news-card:hover {{ transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }}
+  .news-card.featured {{ border-left: 3px solid var(--accent); }}
+  .news-card.featured:hover {{ border-color: var(--accent); }}
+  .card-header {{ display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }}
+  .rank-badge {{ background: var(--accent); color: #fff7f0; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }}
+  .emoji-icon {{ font-size: 18px; }}
+  .card-header-row {{ display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }}
+  .emoji-sm {{ font-size: 14px; }}
+  .news-card h3 {{ font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }}
+  .journal-source {{ font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }}
+  .news-card p {{ font-size: 13.5px; line-height: 1.75; color: var(--muted); }}
   .card-footer {{ margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }}
-  .tag {{ padding: 2px 9px; background: rgba(139,92,246,0.10); border-radius: 6px; font-size: 11px; color: #A78BFA; }}
-  .utility-tag {{ border: 1px solid; }}
-  .utility-reason {{ width: 100%; font-size: 12px; color: #78909C; margin-top: 4px; font-style: italic; }}
-  .news-card a {{ font-size: 12px; color: #22D3EE; text-decoration: none; opacity: 0.7; margin-left: auto; }}
+  .tag {{ padding: 2px 9px; background: var(--accent-soft); border-radius: 999px; font-size: 11px; color: var(--accent); }}
+  .news-card a {{ font-size: 12px; color: var(--accent); text-decoration: none; opacity: 0.7; margin-left: auto; }}
   .news-card a:hover {{ opacity: 1; }}
-  .rank-badge {{ display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 6px; background: rgba(139,92,246,0.2); color: #A78BFA; font-size: 12px; font-weight: 700; margin-right: 8px; }}
-
-  .pico-grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px; margin: 12px 0; padding: 12px; background: rgba(255,255,255,0.02); border-radius: 10px; border: 1px solid rgba(255,255,255,0.05); }}
-  .pico-item {{ display: flex; align-items: flex-start; gap: 8px; }}
-  .pico-label {{ display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 6px; background: rgba(6,182,212,0.15); color: #22D3EE; font-size: 11px; font-weight: 700; flex-shrink: 0; }}
-  .pico-text {{ font-size: 12px; color: #90A4AE; line-height: 1.5; }}
-
-  .bar-row {{ display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }}
-  .bar-label {{ min-width: 80px; font-size: 12px; color: #90A4AE; text-align: right; }}
-  .bar-track {{ flex: 1; height: 8px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; }}
-  .bar-fill {{ height: 100%; background: linear-gradient(90deg, #8B5CF6, #06B6D4); border-radius: 4px; transition: width 0.6s ease; }}
-  .bar-count {{ min-width: 24px; font-size: 12px; color: #A78BFA; font-weight: 600; }}
-
+  .utility-high {{ color: #5a7a3a; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(90,122,58,0.1); border-radius: 4px; }}
+  .utility-mid {{ color: #9f7a2e; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(159,122,46,0.1); border-radius: 4px; }}
+  .utility-low {{ color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(118,100,83,0.08); border-radius: 4px; }}
+  .utility-sm {{ font-size: 10px; }}
+  .pico-grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(255,253,249,0.8); border-radius: 14px; border: 1px solid var(--line); }}
+  .pico-item {{ display: flex; gap: 8px; align-items: baseline; }}
+  .pico-label {{ font-size: 10px; font-weight: 700; color: #fff7f0; background: var(--accent); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }}
+  .pico-text {{ font-size: 12px; color: var(--muted); line-height: 1.4; }}
+  .topic-section {{ margin-bottom: 36px; }}
+  .topic-row {{ display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }}
+  .topic-name {{ font-size: 13px; color: var(--muted); width: 100px; flex-shrink: 0; text-align: right; }}
+  .topic-bar-bg {{ flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }}
+  .topic-bar {{ height: 100%; background: linear-gradient(90deg, var(--accent), #c47a4a); border-radius: 4px; transition: width 0.6s ease; }}
+  .topic-count {{ font-size: 12px; color: var(--accent); width: 24px; }}
   .keywords-section {{ margin-bottom: 36px; }}
   .keywords {{ display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }}
-  .keyword {{ padding: 5px 14px; background: rgba(139,92,246,0.07); border: 1px solid rgba(139,92,246,0.18); border-radius: 20px; font-size: 12px; color: #A78BFA; cursor: default; transition: background 0.2s; }}
-  .keyword:hover {{ background: rgba(139,92,246,0.15); }}
-
-  .clinic-banner {{ margin: 40px 0 20px; padding: 20px 24px; background: linear-gradient(135deg, rgba(139,92,246,0.08) 0%, rgba(6,182,212,0.08) 100%); border: 1px solid rgba(139,92,246,0.15); border-radius: 16px; text-align: center; animation: fadeUp 0.5s ease 0.45s both; }}
-  .clinic-banner a {{ color: #22D3EE; text-decoration: none; font-size: 15px; font-weight: 600; }}
-  .clinic-banner a:hover {{ color: #A78BFA; }}
-  .clinic-banner p {{ font-size: 12px; color: #78909C; margin-top: 6px; }}
-
-  footer {{ margin-top: 40px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.06); font-size: 11.5px; color: #37474F; display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; }}
-  footer a {{ color: #546E7A; text-decoration: none; }}
-  footer a:hover {{ color: #A78BFA; }}
-
+  .keyword {{ padding: 5px 14px; background: var(--accent-soft); border: 1px solid var(--line); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: background 0.2s; }}
+  .keyword:hover {{ background: rgba(140,79,43,0.18); }}
+  .clinic-banner {{ margin-top: 48px; animation: fadeUp 0.5s ease 0.4s both; }}
+  .clinic-link {{ display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(61,36,15,0.04); }}
+  .clinic-link:hover {{ border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }}
+  .clinic-icon {{ font-size: 28px; flex-shrink: 0; }}
+  .clinic-name {{ font-size: 15px; font-weight: 700; color: var(--text); flex: 1; }}
+  .clinic-arrow {{ font-size: 18px; color: var(--accent); font-weight: 700; }}
+  footer {{ margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; }}
+  footer a {{ color: var(--muted); text-decoration: none; }}
+  footer a:hover {{ color: var(--accent); }}
   @keyframes fadeDown {{ from {{ opacity: 0; transform: translateY(-16px); }} to {{ opacity: 1; transform: translateY(0); }} }}
   @keyframes fadeUp {{ from {{ opacity: 0; transform: translateY(16px); }} to {{ opacity: 1; transform: translateY(0); }} }}
-  @media (max-width: 600px) {{ .container {{ padding: 36px 18px 60px; }} .summary-card, .news-card {{ padding: 20px 18px; }} footer {{ flex-direction: column; gap: 6px; text-align: center; }} .pico-grid {{ grid-template-columns: 1fr 1fr; }} }}
+  @media (max-width: 600px) {{ .container {{ padding: 36px 18px 60px; }} .summary-card, .news-card {{ padding: 20px 18px; }} .pico-grid {{ grid-template-columns: 1fr; }} footer {{ flex-direction: column; gap: 6px; text-align: center; }} .topic-name {{ width: 70px; font-size: 11px; }} }}
 </style>
 </head>
 <body>
@@ -380,33 +373,36 @@ def generate_html(analysis: dict, date_str: str) -> str:
   <header>
     <div class="logo">🍄</div>
     <div class="header-text">
-      <h1>Psychedelic Brain · 迷幻研究文獻日報</h1>
+      <h1>Psychedelic Brain &middot; 迷幻研究文獻日報</h1>
       <div class="header-meta">
-        <span class="badge badge-date">{date_display}</span>
-        <span class="badge badge-count">{total_papers} 篇文獻</span>
-        <span class="badge badge-source">PubMed + AI Analysis</span>
+        <span class="badge badge-date">📅 {date_display}</span>
+        <span class="badge badge-count">📊 {total_papers} 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + Zhipu AI</span>
       </div>
     </div>
   </header>
 
-  {"<div class='summary-card'><h2>今日摘要</h2><ul class='summary-list'>" + summary_list_items + "</ul></div>" if summary_list_items else ""}
+  {"<div class='summary-card'><h2>📋 今日文獻趨勢</h2><p class='summary-text'>" + summary + "</p></div>" if summary else ""}
 
-  {"<div class='section'><div class='section-title'><div class='section-icon' style='background:rgba(139,92,246,0.15)'>🏆</div>精選 TOP Papers</div>" + top_picks_html + "</div>" if top_picks_html else ""}
+  {"<div class='section'><div class='section-title'><span class='section-icon'>⭐</span>今日精選 TOP Picks</div>" + top_picks_html + "</div>" if top_picks_html else ""}
 
-  {"<div class='section'><div class='section-title'><div class='section-icon' style='background:rgba(6,182,212,0.15)'>📋</div>其他重要文獻</div>" + all_papers_html + "</div>" if all_papers_html else ""}
+  {"<div class='section'><div class='section-title'><span class='section-icon'>📚</span>其他值得關注的文獻</div>" + all_papers_html + "</div>" if all_papers_html else ""}
 
-  {"<div class='section'><div class='section-title'><div class='section-icon' style='background:rgba(139,92,246,0.10)'>📊</div>主題分布</div>" + topic_bars + "</div>" if topic_bars else ""}
+  {"<div class='topic-section section'><div class='section-title'><span class='section-icon'>📊</span>主題分佈</div>" + topic_bars + "</div>" if topic_bars else ""}
 
-  {"<div class='keywords-section'><div class='section-title'><div class='section-icon' style='background:rgba(139,92,246,0.10)'>#️⃣</div>關鍵詞</div><div class='keywords'>" + keywords_html + "</div></div>" if keywords_html else ""}
+  {"<div class='keywords-section section'><div class='section-title'><span class='section-icon'>🏷️</span>關鍵字</div><div class='keywords'>" + keywords_html + "</div></div>" if keywords_html else ""}
 
   <div class="clinic-banner">
-    <a href="{CLINIC_URL}" target="_blank">🧠 李政洋身心診所</a>
-    <p>專業精神醫學 · 迷幻輔助治療諮詢</p>
+    <a href="{CLINIC_URL}" class="clinic-link" target="_blank">
+      <span class="clinic-icon">🏥</span>
+      <span class="clinic-name">李政洋身心診所首頁</span>
+      <span class="clinic-arrow">→</span>
+    </a>
   </div>
 
   <footer>
-    <div>Powered by PubMed + Zhipu AI · <a href="https://github.com/u8901006/psychedelic-brain">GitHub</a></div>
-    <span>Psychedelic Brain</span>
+    <span>資料來源：PubMed &middot; 分析模型：glm-4-plus</span>
+    <span><a href="https://github.com/u8901006/psychedelic-brain">GitHub</a></span>
   </footer>
 </div>
 </body>
