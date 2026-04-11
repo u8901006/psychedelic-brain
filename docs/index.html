@@ -6,25 +6,26 @@
 <title>Psychedelic Brain · 迷幻研究文獻日報</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍄</text></svg>"/>
 <style>
-  :root { --bg: #0a0a12; --surface: rgba(255,255,255,0.03); --line: rgba(255,255,255,0.07); --text: #E8E0F0; --muted: #78909C; --accent: #A78BFA; --accent-soft: rgba(139,92,246,0.10); }
+  :root { --bg: #f6f1e8; --surface: #fffaf2; --line: #d8c5ab; --text: #2b2118; --muted: #766453; --accent: #8c4f2b; --accent-soft: #ead2bf; }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #0a0a12; color: var(--text); font-family: -apple-system, "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; }
-  body::before { content: ''; position: fixed; bottom: -200px; right: -200px; width: 900px; height: 900px; border-radius: 50%; background: radial-gradient(circle, rgba(139,92,246,0.10) 0%, transparent 70%); pointer-events: none; z-index: 0; }
-  body::after { content: ''; position: fixed; top: -250px; left: -250px; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(6,182,212,0.08) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+  body { background: radial-gradient(circle at top, #fff6ea 0, var(--bg) 55%, #ead8c6 100%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; }
   .container { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; padding: 80px 24px; }
   .logo { font-size: 48px; text-align: center; margin-bottom: 16px; }
-  h1 { text-align: center; font-size: 24px; color: #fff; margin-bottom: 8px; }
+  h1 { text-align: center; font-size: 24px; color: var(--text); margin-bottom: 8px; }
   .subtitle { text-align: center; color: var(--accent); font-size: 14px; margin-bottom: 48px; }
   .count { text-align: center; color: var(--muted); font-size: 13px; margin-bottom: 32px; }
   ul { list-style: none; }
   li { margin-bottom: 8px; }
   a { color: var(--text); text-decoration: none; display: block; padding: 14px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; transition: all 0.2s; font-size: 15px; }
   a:hover { background: var(--accent-soft); border-color: var(--accent); transform: translateX(4px); }
-  .clinic-banner { margin: 40px 0 20px; padding: 16px 20px; background: linear-gradient(135deg, rgba(139,92,246,0.08) 0%, rgba(6,182,212,0.08) 100%); border: 1px solid rgba(139,92,246,0.15); border-radius: 12px; text-align: center; }
-  .clinic-banner a { background: none; border: none; padding: 0; color: #22D3EE; font-weight: 600; }
-  .clinic-banner a:hover { color: #A78BFA; transform: none; }
-  footer { margin-top: 56px; text-align: center; font-size: 12px; color: #546E7A; }
-  footer a { display: inline; padding: 0; background: none; border: none; color: #546E7A; }
+  .clinic-banner { margin: 40px 0 20px; }
+  .clinic-link { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(61,36,15,0.04); }
+  .clinic-link:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .clinic-icon { font-size: 28px; flex-shrink: 0; }
+  .clinic-name { font-size: 15px; font-weight: 700; color: var(--text); flex: 1; }
+  .clinic-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 56px; text-align: center; font-size: 12px; color: var(--muted); }
+  footer a { display: inline; padding: 0; background: none; border: none; color: var(--muted); }
   footer a:hover { color: var(--accent); }
 </style>
 </head>
@@ -37,7 +38,11 @@
   <ul><li><a href="psychedelic-2026-04-11.html">🍄 2026年4月11日（週六）</a></li>
 </ul>
   <div class="clinic-banner">
-    <a href="https://www.leepsyclinic.com/" target="_blank">🧠 李政洋身心診所</a>
+    <a href="https://www.leepsyclinic.com/" class="clinic-link" target="_blank">
+      <span class="clinic-icon">🏥</span>
+      <span class="clinic-name">李政洋身心診所首頁</span>
+      <span class="clinic-arrow">→</span>
+    </a>
   </div>
   <footer>
     <p>Powered by PubMed + Zhipu AI · <a href="https://github.com/u8901006/psychedelic-brain">GitHub</a></p>
