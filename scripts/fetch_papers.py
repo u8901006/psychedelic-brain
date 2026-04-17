@@ -6,6 +6,7 @@ Targets Q1/Q2 psychedelic journals and covers major psychedelic research topics.
 
 import json
 import sys
+import os
 import argparse
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
@@ -156,12 +157,33 @@ def main():
     )
     parser.add_argument("--output", default="-", help="Output file (- for stdout)")
     parser.add_argument("--json", action="store_true", help="Output as JSON")
+    parser.add_argument(
+        "--exclude-file",
+        default="",
+        help="JSON file with previously reported PMIDs to skip",
+    )
     args = parser.parse_args()
 
     tz_taipei = timezone(timedelta(hours=8))
     today = datetime.now(tz_taipei)
     lookback = (today - timedelta(days=args.days)).strftime("%Y/%m/%d")
     date_filter = f'"{lookback}"[Date - Publication] : "3000"[Date - Publication]'
+
+    excluded_pmids = set()
+    if args.exclude_file and os.path.exists(args.exclude_file):
+        try:
+            with open(args.exclude_file, "r", encoding="utf-8") as f:
+                exclude_data = json.load(f)
+            cutoff = (today - timedelta(days=7)).strftime("%Y-%m-%d")
+            for date_key, pmids in exclude_data.items():
+                if date_key >= cutoff:
+                    excluded_pmids.update(pmids)
+            print(
+                f"[INFO] Loaded {len(excluded_pmids)} excluded PMIDs from past 7 days",
+                file=sys.stderr,
+            )
+        except Exception as e:
+            print(f"[WARN] Could not read exclude file: {e}", file=sys.stderr)
 
     all_pmids = set()
     per_query = max(args.max_papers // len(SEARCH_QUERIES), 3)
@@ -179,9 +201,17 @@ def main():
             file=sys.stderr,
         )
 
-    pmid_list = list(all_pmids)[: args.max_papers]
+    new_pmids = all_pmids - excluded_pmids
+    skipped = len(all_pmids) - len(new_pmids)
+    if skipped > 0:
+        print(
+            f"[INFO] Filtered out {skipped} already-reported PMIDs, {len(new_pmids)} new remaining",
+            file=sys.stderr,
+        )
+
+    pmid_list = list(new_pmids)[: args.max_papers]
     print(
-        f"[INFO] Fetching details for {len(pmid_list)} unique papers...",
+        f"[INFO] Fetching details for {len(pmid_list)} new papers...",
         file=sys.stderr,
     )
 

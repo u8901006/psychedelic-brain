@@ -54,7 +54,8 @@ jobs:
             --days 7 \
             --max-papers 40 \
             --json \
-            --output papers.json
+            --output papers.json \
+            --exclude-file docs/reported_pmids.json
         continue-on-error: true
 
       - name: Check papers data
@@ -81,6 +82,31 @@ jobs:
 
       - name: Generate index page
         run: python scripts/generate_index.py
+
+      - name: Update reported PMIDs tracker
+        run: |
+          python -c "
+          import json, os
+          from datetime import datetime, timezone, timedelta
+          tz = timezone(timedelta(hours=8))
+          today = datetime.now(tz).strftime('%Y-%m-%d')
+          cutoff = (datetime.now(tz) - timedelta(days=7)).strftime('%Y-%m-%d')
+          tracker = {}
+          path = 'docs/reported_pmids.json'
+          if os.path.exists(path):
+              with open(path, 'r') as f:
+                  tracker = json.load(f)
+          if os.path.exists('papers.json'):
+              with open('papers.json', 'r') as f:
+                  data = json.load(f)
+              pmids = [p['pmid'] for p in data.get('papers', []) if p.get('pmid')]
+              if pmids:
+                  tracker[today] = pmids
+          tracker = {k: v for k, v in tracker.items() if k >= cutoff}
+          with open(path, 'w') as f:
+              json.dump(tracker, f, indent=2)
+          print(f'Updated tracker: {sum(len(v) for v in tracker.values())} PMIDs across {len(tracker)} days')
+          "
 
       - name: Commit and push
         run: |
