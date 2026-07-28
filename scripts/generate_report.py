@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate psychedelic daily report HTML using Zhipu AI.
+Generate psychedelic daily report HTML using NVIDIA AI.
 Reads papers JSON, analyzes with AI, generates styled dark-themed HTML.
 """
 
@@ -14,9 +14,9 @@ from datetime import datetime, timezone, timedelta
 import httpx
 
 API_BASE = os.environ.get(
-    "ZHIPU_API_BASE", "https://open.bigmodel.cn/api/coding/paas/v4"
+    "NVIDIA_API_BASE", "https://integrate.api.nvidia.com/v1"
 )
-MODEL_NAME = os.environ.get("ZHIPU_MODEL", "glm-4-plus")
+MODEL_NAME = os.environ.get("NVIDIA_MODEL", "nvidia/nemotron-3-super-120b-a12b")
 CLINIC_URL = "https://www.leepsyclinic.com/"
 
 SYSTEM_PROMPT = (
@@ -115,12 +115,14 @@ def analyze_papers(api_key: str, papers_data: dict) -> dict:
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": prompt},
         ],
-        "temperature": 0.3,
-        "top_p": 0.9,
+        "temperature": 1.0,
+        "top_p": 0.95,
+        "stream": False,
+        "chat_template_kwargs": {"enable_thinking": False},
         "max_tokens": 8192,
     }
 
-    models_to_try = [MODEL_NAME, "glm-4-flash", "glm-4"]
+    models_to_try = [MODEL_NAME, "nvidia/nemotron-3-nano-30b-a3b"]
 
     for model in models_to_try:
         payload["model"] = model
@@ -377,7 +379,7 @@ def generate_html(analysis: dict, date_str: str) -> str:
       <div class="header-meta">
         <span class="badge badge-date">📅 {date_display}</span>
         <span class="badge badge-count">📊 {total_papers} 篇文獻</span>
-        <span class="badge badge-source">Powered by PubMed + Zhipu AI</span>
+        <span class="badge badge-source">Powered by PubMed + NVIDIA AI</span>
       </div>
     </div>
   </header>
@@ -401,7 +403,7 @@ def generate_html(analysis: dict, date_str: str) -> str:
   </div>
 
   <footer>
-    <span>資料來源：PubMed &middot; 分析模型：glm-4-plus</span>
+    <span>資料來源：PubMed &middot; 分析模型：nvidia/nemotron-3-super-120b-a12b</span>
     <span><a href="https://github.com/u8901006/psychedelic-brain">GitHub</a></span>
   </footer>
 </div>
@@ -415,10 +417,10 @@ def main():
     parser = argparse.ArgumentParser(description="Generate psychedelic daily report")
     parser.add_argument("--input", required=True, help="Input papers JSON file")
     parser.add_argument("--output", required=True, help="Output HTML file")
-    parser.add_argument("--api-key", default="", help="Zhipu API key")
+    parser.add_argument("--api-key", default="", help="NVIDIA API key")
     args = parser.parse_args()
 
-    api_key = args.api_key or os.environ.get("ZHIPU_API_KEY", "")
+    api_key = args.api_key or os.environ.get("NVIDIA_API_KEY", "")
     if not api_key:
         print("[ERROR] No API key provided", file=sys.stderr)
         sys.exit(1)
