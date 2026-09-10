@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Psychedelic Brain &middot; 迷幻研究文獻日報 &middot; 2026年9月11日（週五）</title>
+<meta name="description" content="2026年9月11日（週五） 迷幻研究（Psychedelic Research）最新文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<meta property="og:title" content="Psychedelic Brain &middot; 2026年9月11日（週五）"/>
+<meta property="og:description" content="迷幻研究每日文獻精選"/>
+<meta property="og:type" content="article"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍄</text></svg>"/>
+<style>
+  :root { --bg: #f6f1e8; --surface: #fffaf2; --line: #d8c5ab; --text: #2b2118; --muted: #766453; --accent: #8c4f2b; --accent-soft: #ead2bf; --card-bg: color-mix(in srgb, var(--surface) 92%, white); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: radial-gradient(circle at top, #fff6ea 0, var(--bg) 55%, #ead8c6 100%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 48px; height: 48px; border-radius: 14px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 20px rgba(140,79,43,0.25); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid var(--line); color: var(--accent); }
+  .badge-count { background: rgba(140,79,43,0.06); border: 1px solid var(--line); color: var(--muted); }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(61,36,15,0.06); animation: fadeUp 0.5s ease 0.1s both; }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(61,36,15,0.04); transition: background 0.2s, border-color 0.2s, transform 0.2s; }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .news-card.featured:hover { border-color: var(--accent); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: var(--accent); color: #fff7f0; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--accent); text-decoration: none; opacity: 0.7; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: #5a7a3a; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(90,122,58,0.1); border-radius: 4px; }
+  .utility-mid { color: #9f7a2e; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(159,122,46,0.1); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(118,100,83,0.08); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(255,253,249,0.8); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff7f0; background: var(--accent); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 100px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), #c47a4a); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--accent); width: 24px; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid var(--line); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: background 0.2s; }
+  .keyword:hover { background: rgba(140,79,43,0.18); }
+  .clinic-banner { margin-top: 48px; animation: fadeUp 0.5s ease 0.4s both; }
+  .clinic-link { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(61,36,15,0.04); }
+  .clinic-link:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .clinic-icon { font-size: 28px; flex-shrink: 0; }
+  .clinic-name { font-size: 15px; font-weight: 700; color: var(--text); flex: 1; }
+  .clinic-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 70px; font-size: 11px; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">🍄</div>
+    <div class="header-text">
+      <h1>Psychedelic Brain &middot; 迷幻研究文獻日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年9月11日（週五）</span>
+        <span class="badge badge-count">📊 14 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + NVIDIA AI</span>
+      </div>
+    </div>
+  </header>
+
+  <div class='summary-card'><h2>📋 今日文獻趨勢</h2><p class='summary-text'>今日文獻聚焦於迷幻輔助治療的臨床證據累積，特別是MDMA-assisted therapy治療PTSD的meta分析顯示顯著改善；同時也見證基礎科學進展，如LSD結構去建構與psilocybin對5-HT2B受體的選擇性作用揭示新機制；微劑量研究則顯示對健康成人心理效應有限。整體趨勢是從單一受體導向轉向理解複雜的藥理-行為-社會脈絡互動。</p></div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>⭐</span>今日精選 TOP Picks</div><div class="news-card featured">
+<div class="card-header">
+<span class="rank-badge">#1</span>
+<span class="emoji-icon">🌿</span>
+<span class="utility-high">高實用性</span>
+</div>
+<h3>MDMA輔助療法可顯著改善PTSD症狀、解離、憂鬱與功能障礙：系統評析與Meta分析</h3>
+<p class="journal-source">Harvard review of psychiatry &middot; MDMA-Assisted Therapy May Decrease PTSD Symptoms, Dissociation, Depression, and Functional Disability: A Systematic Review and Meta-Analysis.</p>
+<p>來自七項隨機對照試驗的證據顯示，MDMA輔助心理治療在改善PTSD核心症狀、解離、憂鬱及功能方面優於對照組，支持其作為新興治療選項的潛力，儘管受限於樣本小與盲法困難。</p>
+<div class="pico-grid">
+<div class="pico-item"><span class="pico-label">P</span><span class="pico-text">患有PTSD的成人</span></div>
+<div class="pico-item"><span class="pico-label">I</span><span class="pico-text">MDMA輔助心理治療（MDMA-AT）</span></div>
+<div class="pico-item"><span class="pico-label">C</span><span class="pico-text">低劑量MDMA或安慰劑加心理治療</span></div>
+<div class="pico-item"><span class="pico-label">O</span><span class="pico-text">PTSD症狀（CAPS）、解離、憂鬱及功能障礙顯著改善，但睡眠品質無顯著改善</span></div>
+</div>
+<div class="card-footer">
+<span class="tag">PTSD</span><span class="tag">MDMA</span><span class="tag">迷幻輔助治療</span><span class="tag">臨床試驗設計</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42708350/' target='_blank'>閱讀原文 →</a>
+</div>
+</div>
+<div class="news-card featured">
+<div class="card-header">
+<span class="rank-badge">#2</span>
+<span class="emoji-icon">🔬</span>
+<span class="utility-high">高實用性</span>
+</div>
+<h3>LSD的結構去建構揭示其致幻效應的最小藥效基團，並發現具抗精神病樣特性的類似物UCD0076</h3>
+<p class="journal-source">Proceedings of the National Academy of Sciences of the United States of America &middot; Deconstruction of lysergic acid diethylamide.</p>
+<p>系統簡化LSD的四環雜毛鹼核心，確認5-HT2A激動是致幻所必要，並發現類似物UCD0076優先激活5-HT2C受體，在動物模型中表現出抗精神病樣行為，為開發更安全的類似物提供策略。</p>
+<div class="pico-grid">
+<div class="pico-item"><span class="pico-label">P</span><span class="pico-text">細胞受體誘導模型及小鼠行為測試</span></div>
+<div class="pico-item"><span class="pico-label">I</span><span class="pico-text">9種LSD簡化類似物（ergologs）</span></div>
+<div class="pico-item"><span class="pico-label">C</span><span class="pico-text">天然LSD</span></div>
+<div class="pico-item"><span class="pico-label">O</span><span class="pico-text">UCD0076選擇性激活5-HT2C > 5-HT2A/2B，並產生抗精神病樣行為；證明可分離治療效應與致幻作用</span></div>
+</div>
+<div class="card-footer">
+<span class="tag">LSD</span><span class="tag">5-HT2A</span><span class="tag">神經生物學</span><span class="tag">藥理學</span><span class="tag">psilocybin</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42709856/' target='_blank'>閱讀原文 →</a>
+</div>
+</div>
+<div class="news-card featured">
+<div class="card-header">
+<span class="rank-badge">#3</span>
+<span class="emoji-icon">🐭</span>
+<span class="utility-mid">中實用性</span>
+</div>
+<h3>裸盤菌素經由5-HT2B受體選擇性抑制新奇誘導的梳理行為，揭示其非幻覺行為調節機制</h3>
+<p class="journal-source">Progress in neuro-psychopharmacology & biological psychiatry &middot; Psilocybin selectively suppresses novelty-induced grooming via 5-HT2B receptors: A microstructure analysis in Wistar rats.</p>
+<p>裸盤菌素透過5-HT2B受體（非5-HT2A）選擇性減少新奇環境下的非舒適型梳理行為片段化，此效應可被5-HT2B拮抗劑RS-127445逆轉，提示5-HT2B在調節複雜行為中的獨特角色。</p>
+<div class="pico-grid">
+<div class="pico-item"><span class="pico-label">P</span><span class="pico-text">Wistar大鼠</span></div>
+<div class="pico-item"><span class="pico-label">I</span><span class="pico-text">裸盤菌素給予</span></div>
+<div class="pico-item"><span class="pico-label">C</span><span class="pico-text">對照組（ vehículo） ± 5-HT2B拮抗劑RS-127445</span></div>
+<div class="pico-item"><span class="pico-label">O</span><span class="pico-text">縮減新奇誘導梳理總時間與段落數；抑制異常過渡模式；RS-127445阻斷此效應</span></div>
+</div>
+<div class="card-footer">
+<span class="tag">psilocybin</span><span class="tag">5-HT2B</span><span class="tag">神經生物學</span><span class="tag">行為微結構</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42716333/' target='_blank'>閱讀原文 →</a>
+</div>
+</div>
+<div class="news-card featured">
+<div class="card-header">
+<span class="rank-badge">#4</span>
+<span class="emoji-icon">💊</span>
+<span class="utility-mid">中實用性</span>
+</div>
+<h3>探索性研究：皮下艾司胺加輔助心理治療對治療抑鬱症的效應顯著提升觀解率</h3>
+<p class="journal-source">Journal of affective disorders &middot; Exploratory non-randomized clinical trial of subcutaneous esketamine in treatment-resistant depression: Effects of ketamine-assisted psychotherapy.</p>
+<p>在開放標籤研究中，接受艾司胺加輔助心理治療(KAP)的治療抑鬱症患者，觀解率達78.3%，顯著高於單藥艾司胺組的34.8%，提示心理治療可能增強藥物療效並加速緩解。</p>
+<div class="pico-grid">
+<div class="pico-item"><span class="pico-label">P</span><span class="pico-text">46名治療抑鬱症（TRD）門診患者</span></div>
+<div class="pico-item"><span class="pico-label">I</span><span class="pico-text">皮下艾司胺 (0.5-1.0 mg/kg) 加 ketamine-assisted psychotherapy (KAP)</span></div>
+<div class="pico-item"><span class="pico-label">C</span><span class="pico-text">單獨皮下艾司胺 (KET)</span></div>
+<div class="pico-item"><span class="pico-label">O</span><span class="pico-text">MADRS評分顯著下降；治療終點時觀解率KAP組78.3% vs KET組34.8% (p=0.007 for remission)</span></div>
+</div>
+<div class="card-footer">
+<span class="tag">ketamine</span><span class="tag">心理治療整合</span><span class="tag">臨床試驗設計</span><span class="tag">憂鬱症</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42575192/' target='_blank'>閱讀原文 →</a>
+</div>
+</div>
+<div class="news-card featured">
+<div class="card-header">
+<span class="rank-badge">#5</span>
+<span class="emoji-icon">🔬</span>
+<span class="utility-low">低實用性</span>
+</div>
+<h3>健康成人進行迷幻微劑量對心理結果的影響：系統評析與Meta分析顯示認知及持續情緒改善有限</h3>
+<p class="journal-source">CNS drugs &middot; Efficacy and Safety of Psychedelic Microdosing on Psychological Outcomes in Healthy Adults: A Systematic Review and Meta-analysis.</p>
+<p>隨機對照試驗顯示psilocybin與LSD微劑量對認知、創造力或持續 mood 無顯著影響，儘管觀察性研究報告情緒改善，可能受期待效應或生活方式因素混雜。</p>
+<div class="pico-grid">
+<div class="pico-item"><span class="pico-label">P</span><span class="pico-text">健康/非臨床成人 (N=3,681 across 24 studies)</span></div>
+<div class="pico-item"><span class="pico-label">I</span><span class="pico-text">亞幻覺劑量的psilocybin或LSD，間隔日給予</span></div>
+<div class="pico-item"><span class="pico-label">C</span><span class="pico-text">安慰劑或無介入</span></div>
+<div class="pico-item"><span class="pico-label">O</span><span class="pico-text">RCTs: 憂鬱 (SMD=-0.19), 焦慮 (SMD=-0.20), 壓力 (SMD=0.02) 無顯著變化；EEG與語音改變未轉換為行為改善</span></div>
+</div>
+<div class="card-footer">
+<span class="tag">microdosing</span><span class="tag">psilocybin</span><span class="tag">LSD</span><span class="tag">憂鬱症</span><span class="tag">焦慮症</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42593636/' target='_blank'>閱讀原文 →</a>
+</div>
+</div>
+</div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>📚</span>其他值得關注的文獻</div><div class="news-card">
+<div class="card-header-row">
+<span class="emoji-sm">🧬</span>
+<span class="utility-low utility-sm">低</span>
+</div>
+<h3>髮內皮質醇與可蒂松：超越單純壓力標誌的多宇宙 biopsychosocial 關聯分析</h3>
+<p class="journal-source">Psychoneuroendocrinology</p>
+<p>髮內糖皮質激素受髮色、洗髮頻率、BMI、避孕藥使用等生理因素強烈影響，而心理社会因素如壓力感覺、焦慮憂鬱症狀僅具較弱且特定的關聯，提醒其作為壓力生物標誌之解釋需謹慎。</p>
+<div class="card-footer">
+<span class="tag">壓力</span><span class="tag">生物標誌</span><span class="tag">Allostatic load</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42419163/' target='_blank'>PubMed →</a>
+</div>
+</div>
+<div class="news-card">
+<div class="card-header-row">
+<span class="emoji-sm">🌸</span>
+<span class="utility-low utility-sm">低</span>
+</div>
+<h3>Passiflora incarnata萃取物對多種與睡眠相關受體產生多標的效應，支持其傳統助眠用途</h3>
+<p class="journal-source">Journal of ethnopharmacology</p>
+<p>紫萱萃取物抑制腺苷A1/A2A與5-HT2A受體結合，並阻斷去甲腎上腺素、多巴胺與5-羥色胺的再攝取，提供其助眠機制的藥理基礎，雖未影響melatonin或orexin受體。</p>
+<div class="card-footer">
+<span class="tag">焦慮症</span><span class="tag">失眠</span><span class="tag">草藥</span><span class="tag">Passiflora incarnata</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42462921/' target='_blank'>PubMed →</a>
+</div>
+</div>
+<div class="news-card">
+<div class="card-header-row">
+<span class="emoji-sm">💧</span>
+<span class="utility-mid utility-sm">中</span>
+</div>
+<h3>拉斯維加斯電子音樂節周圍廢水監測顯示MDMA等高風險物質在節前及節日期間可被檢測，提供事件基礎流行病學工具</h3>
+<p class="journal-source">JMIR public health and surveillance</p>
+<p>連續三年廢水監測顯示可卡因、甲基苯丙胺、MDMA等在音樂節期間濃度顯著升高，尤其MDMA在節前可達近2 mg/L，證明廢水監測可實時反映大規模集會的物質使用趨勢。</p>
+<div class="card-footer">
+<span class="tag">MDMA</span><span class="tag">廢水監測</span><span class="tag">公共衛生</span><span class="tag">物質使用預防</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42710006/' target='_blank'>PubMed →</a>
+</div>
+</div>
+<div class="news-card">
+<div class="card-header-row">
+<span class="emoji-sm">💭</span>
+<span class="utility-mid utility-sm">中</span>
+</div>
+<h3>皮下艾司胺導致的解離體驗，特別是幻覺感，可能與較佳抗抑鬱反應相關，提示其可能具臨床相關性</h3>
+<p class="journal-source">Journal of psychiatric research</p>
+<p>接受皮下艾司胺治療的治療抑鬱症患者中， MADRS 有≥50%減少的應答者表現出顯著較高的總CADSS及幻覺感分數，提示解離體驗特別是幻覺感可能與藥物治療反應程度正相關。</p>
+<div class="card-footer">
+<span class="tag">艾司胺</span><span class="tag">解離</span><span class="tag">治療抑鬱症</span><span class="tag">憂鬱症</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42531622/' target='_blank'>PubMed →</a>
+</div>
+</div>
+<div class="news-card">
+<div class="card-header-row">
+<span class="emoji-sm">🤢</span>
+<span class="utility-mid utility-sm">中</span>
+</div>
+<h3>大麻過度吐逆症(CHS)與較高濃度大麻使用、多種藥物濫用、精神症狀及反社會行為顯著相關，提示其為更廣泛身心健康問題的標誌</h3>
+<p class="journal-source">Drug and alcohol dependence</p>
+<p>自報CHS症狀者不僅濫用大麻程度較深，且同時使用鴉片類、幻覺劑、鎮靜劑等其他藥物比例更高，並伴隨較嚴重的憂鬱、焦慮、睡眠障礙、慢性疼痛及反社會人格特徵，顯示CHS可能是多重身心困擾的表現。</p>
+<div class="card-footer">
+<span class="tag">大麻</span><span class="tag">憂鬱症</span><span class="tag">焦慮症</span><span class="tag">精神病理</span><span class="tag">人格</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42617216/' target='_blank'>PubMed →</a>
+</div>
+</div>
+<div class="news-card">
+<div class="card-header-row">
+<span class="emoji-sm">🌀</span>
+<span class="utility-low utility-sm">低</span>
+</div>
+<h3>催眠誘導的神祕體驗介入：質性分析顯示其主觀體驗與迷幻誘發的神祕狀態高度相似，具備促進個人成長的潛力</h3>
+<p class="journal-source">The American journal of clinical hypnosis</p>
+<p>接受催眠介入的參與者報告體驗包括強烈情緒釋放、類幻覺意象（共覺、感應亡靈）、自我愛與價值洞察，以及神聖合一感與自我解體，這些主題與致幻劑誘導的神祕體驗高度重疊，支持催眠作為非藥物途徑探索改变意識狀態的可行性。</p>
+<div class="card-footer">
+<span class="tag">催眠</span><span class="tag">神祕體驗</span><span class="tag">迷幻體驗</span><span class="tag">主觀經驗</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42696518/' target='_blank'>PubMed →</a>
+</div>
+</div>
+<div class="news-card">
+<div class="card-header-row">
+<span class="emoji-sm">⚠️</span>
+<span class="utility-low utility-sm">低</span>
+</div>
+<h3>移除迷幻藥物的主觀體驗是一個錯誤：論述為何『去旅行』的成分對其治療與社會價值不可或缺</h3>
+<p class="journal-source">The International journal on drug policy</p>
+<p>試圖開發非主觀致幻的'精神塑性藥物'(psychoplastogens) 可能忽略了set, setting與社會脈絡在發揮迷幻藥物關係性、生態適适及轉化力量中的核心角色，警告純生物醫藥化路徑可能喪失其真正治療價值。</p>
+<div class="card-footer">
+<span class="tag">主觀經驗</span><span class="tag">Ecodelics</span><span class="tag">藥物政策</span><span class="tag">社會脈絡</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42715836/' target='_blank'>PubMed →</a>
+</div>
+</div>
+<div class="news-card">
+<div class="card-header-row">
+<span class="emoji-sm">🧘</span>
+<span class="utility-low utility-sm">低</span>
+</div>
+<h3>前瞻冥想科學：建構跨學科框架以研究高級冥想狀態及其與迷幻體驗的關聯</h3>
+<p class="journal-source">Trends in cognitive sciences</p>
+<p>指出進階冥想研究正邁向整合神經科學、 phenomenology、臨床結果與公共衛生，並承認其與迷幻誘導之意識狀態的連續性，為心智科學提供新視野。</p>
+<div class="card-footer">
+<span class="tag">冥想</span><span class="tag">意識研究</span><span class="tag">心理治療整合</span><span class="tag">神經科學</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42716834/' target='_blank'>PubMed →</a>
+</div>
+</div>
+<div class="news-card">
+<div class="card-header-row">
+<span class="emoji-sm">💊</span>
+<span class="utility-mid utility-sm">中</span>
+</div>
+<h3>智能障礙者長效注射型vs口服抗精神病藥：自我對照病例序列顯示長效型降低急診與再住院風險，特別是降低錐體外系症狀</h3>
+<p class="journal-source">BMJ mental health</p>
+<p>在智能障礙者中，長效注射型抗精神病藥相較於口服型顯著降低所有原因急診訪問（IRR 0.71）、精神病住院（0.90）及錐體外系症狀（IRR 0.34）風險，但在無精神病 comorbidity 組可能增加心血管住院風險。</p>
+<div class="card-footer">
+<span class="tag">抗精神病藥</span><span class="tag">智能障礙</span><span class="tag">醫療資源使用</span><span class="tag">安全性</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42711066/' target='_blank'>PubMed →</a>
+</div>
+</div>
+</div>
+
+  <div class='topic-section section'><div class='section-title'><span class='section-icon'>📊</span>主題分佈</div><div class="topic-row">
+<span class="topic-name">憂鬱症</span>
+<div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+<span class="topic-count">5</span>
+</div>
+<div class="topic-row">
+<span class="topic-name">焦慮症</span>
+<div class="topic-bar-bg"><div class="topic-bar" style="width:80%"></div></div>
+<span class="topic-count">4</span>
+</div>
+<div class="topic-row">
+<span class="topic-name">神經生物學</span>
+<div class="topic-bar-bg"><div class="topic-bar" style="width:80%"></div></div>
+<span class="topic-count">4</span>
+</div>
+<div class="topic-row">
+<span class="topic-name">心理治療整合</span>
+<div class="topic-bar-bg"><div class="topic-bar" style="width:80%"></div></div>
+<span class="topic-count">4</span>
+</div>
+<div class="topic-row">
+<span class="topic-name">臨床試驗設計</span>
+<div class="topic-bar-bg"><div class="topic-bar" style="width:60%"></div></div>
+<span class="topic-count">3</span>
+</div>
+<div class="topic-row">
+<span class="topic-name">psilocybin</span>
+<div class="topic-bar-bg"><div class="topic-bar" style="width:60%"></div></div>
+<span class="topic-count">3</span>
+</div>
+<div class="topic-row">
+<span class="topic-name">MDMA</span>
+<div class="topic-bar-bg"><div class="topic-bar" style="width:60%"></div></div>
+<span class="topic-count">3</span>
+</div>
+<div class="topic-row">
+<span class="topic-name">LSD</span>
+<div class="topic-bar-bg"><div class="topic-bar" style="width:40%"></div></div>
+<span class="topic-count">2</span>
+</div>
+<div class="topic-row">
+<span class="topic-name">ketamine</span>
+<div class="topic-bar-bg"><div class="topic-bar" style="width:40%"></div></div>
+<span class="topic-count">2</span>
+</div>
+<div class="topic-row">
+<span class="topic-name">5-HT2A</span>
+<div class="topic-bar-bg"><div class="topic-bar" style="width:40%"></div></div>
+<span class="topic-count">2</span>
+</div>
+<div class="topic-row">
+<span class="topic-name">主觀經驗</span>
+<div class="topic-bar-bg"><div class="topic-bar" style="width:40%"></div></div>
+<span class="topic-count">2</span>
+</div>
+<div class="topic-row">
+<span class="topic-name">PTSD</span>
+<div class="topic-bar-bg"><div class="topic-bar" style="width:20%"></div></div>
+<span class="topic-count">1</span>
+</div>
+<div class="topic-row">
+<span class="topic-name">microdosing</span>
+<div class="topic-bar-bg"><div class="topic-bar" style="width:20%"></div></div>
+<span class="topic-count">1</span>
+</div>
+<div class="topic-row">
+<span class="topic-name">5-HT2B</span>
+<div class="topic-bar-bg"><div class="topic-bar" style="width:20%"></div></div>
+<span class="topic-count">1</span>
+</div>
+</div>
+
+  <div class='keywords-section section'><div class='section-title'><span class='section-icon'>🏷️</span>關鍵字</div><div class='keywords'><span class="keyword">MDMA</span><span class="keyword">PTSD</span><span class="keyword">LSD</span><span class="keyword">psilocybin</span><span class="keyword">ketamine</span><span class="keyword">microdosing</span><span class="keyword">5-HT2A</span><span class="keyword">5-HT2B</span><span class="keyword">神經可塑性</span><span class="keyword">心理治療整合</span></div></div>
+
+  <div class="clinic-banner">
+    <a href="https://www.leepsyclinic.com/" class="clinic-link" target="_blank">
+      <span class="clinic-icon">🏥</span>
+      <span class="clinic-name">李政洋身心診所首頁</span>
+      <span class="clinic-arrow">→</span>
+    </a>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed &middot; 分析模型：nvidia/nemotron-3-super-120b-a12b</span>
+    <span><a href="https://github.com/u8901006/psychedelic-brain">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
