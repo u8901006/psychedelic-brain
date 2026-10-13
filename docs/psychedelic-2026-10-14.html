@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Psychedelic Brain &middot; 迷幻研究文獻日報 &middot; 2026年10月14日（週三）</title>
+<meta name="description" content="2026年10月14日（週三） 迷幻研究（Psychedelic Research）最新文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<meta property="og:title" content="Psychedelic Brain &middot; 2026年10月14日（週三）"/>
+<meta property="og:description" content="迷幻研究每日文獻精選"/>
+<meta property="og:type" content="article"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍄</text></svg>"/>
+<style>
+  :root { --bg: #f6f1e8; --surface: #fffaf2; --line: #d8c5ab; --text: #2b2118; --muted: #766453; --accent: #8c4f2b; --accent-soft: #ead2bf; --card-bg: color-mix(in srgb, var(--surface) 92%, white); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: radial-gradient(circle at top, #fff6ea 0, var(--bg) 55%, #ead8c6 100%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 48px; height: 48px; border-radius: 14px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 20px rgba(140,79,43,0.25); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid var(--line); color: var(--accent); }
+  .badge-count { background: rgba(140,79,43,0.06); border: 1px solid var(--line); color: var(--muted); }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(61,36,15,0.06); animation: fadeUp 0.5s ease 0.1s both; }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(61,36,15,0.04); transition: background 0.2s, border-color 0.2s, transform 0.2s; }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .news-card.featured:hover { border-color: var(--accent); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: var(--accent); color: #fff7f0; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--accent); text-decoration: none; opacity: 0.7; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: #5a7a3a; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(90,122,58,0.1); border-radius: 4px; }
+  .utility-mid { color: #9f7a2e; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(159,122,46,0.1); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(118,100,83,0.08); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(255,253,249,0.8); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff7f0; background: var(--accent); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 100px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), #c47a4a); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--accent); width: 24px; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid var(--line); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: background 0.2s; }
+  .keyword:hover { background: rgba(140,79,43,0.18); }
+  .clinic-banner { margin-top: 48px; animation: fadeUp 0.5s ease 0.4s both; }
+  .clinic-link { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(61,36,15,0.04); }
+  .clinic-link:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .clinic-icon { font-size: 28px; flex-shrink: 0; }
+  .clinic-name { font-size: 15px; font-weight: 700; color: var(--text); flex: 1; }
+  .clinic-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 70px; font-size: 11px; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">🍄</div>
+    <div class="header-text">
+      <h1>Psychedelic Brain &middot; 迷幻研究文獻日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年10月14日（週三）</span>
+        <span class="badge badge-count">📊 10 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + NVIDIA AI</span>
+      </div>
+    </div>
+  </header>
+
+  <div class='summary-card'><h2>📋 今日文獻趨勢</h2><p class='summary-text'>今日文獻聚焦於迷幻藥物（尤其是MDMA、psilocybin、ketamine、THC、Ayahuasca）在神經可塑性、記憶重構與情緒調節方面的基礎與臨床證據，顯示出從動物模型到人類試驗的跨層級研究趨勢，特別是MDMA輔助治療PTSD的活系統綜述提供高品質實證基礎。</p></div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>⭐</span>今日精選 TOP Picks</div><div class="news-card featured">
+<div class="card-header">
+<span class="rank-badge">#1</span>
+<span class="emoji-icon">🧠</span>
+<span class="utility-high">高實用性</span>
+</div>
+<h3>MDMA輔助治療創傷後壓力症候群的活系統檢討與元分析：開放資源證明其短期療效優於安慰劑</h3>
+<p class="journal-source">Neuropsychopharmacology : official publication of the American College of Neuropsychopharmacology &middot; A living systematic review, meta-analysis, and open data resource of trials of MDMA-assisted therapy for PTSD.</p>
+<p>基於6項隨機對照試驗（n=286）的活系統檢討顯示，MDMA輔助療法顯著降低PTSD症狀（Hedges' g = -0.71），提高反應與緩解率，提供目前最可靠的迷幻輔助治療臨床證據。</p>
+<div class="pico-grid">
+<div class="pico-item"><span class="pico-label">P</span><span class="pico-text">被診斷為創傷後壓力症候群（PTSD）的成人患者</span></div>
+<div class="pico-item"><span class="pico-label">I</span><span class="pico-text">MDMA輔助心理治療（MDMA-AT）</span></div>
+<div class="pico-item"><span class="pico-label">C</span><span class="pico-text">安慰劑或標準對照條件</span></div>
+<div class="pico-item"><span class="pico-label">O</span><span class="pico-text">PTSD症狀顯著減少（標準化平均差異 Hedges' g = -0.71），反應率（RR=1.35）和緩解率（RR=2.25）顯著提升</span></div>
+</div>
+<div class="card-footer">
+<span class="tag">PTSD</span><span class="tag">MDMA</span><span class="tag">迷幻輔助治療</span><span class="tag">臨床試驗設計</span><span class="tag">神經生物學</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42860436/' target='_blank'>閱讀原文 →</a>
+</div>
+</div>
+<div class="news-card featured">
+<div class="card-header">
+<span class="rank-badge">#2</span>
+<span class="emoji-icon">🧬</span>
+<span class="utility-high">高實用性</span>
+</div>
+<h3>Ayahuasca 損害恐懼記憶重構並促進海馬與前葉皮質快速突觸可塑性，非經由成年神經新生</h3>
+<p class="journal-source">Molecular neurobiology &middot; Ayahuasca Impairs Fear Memory Reconsolidation and Promotes Rapid Structural Plasticity in the Hippocampus and Prelimbic Cortex.</p>
+<p>Ayahuasca（含DMT）在記憶重構期間給藥可顯著減少凍結行為（ fear memory ），並增加海馬與前葉皮質的樹突棘密度與分支複雜度，但不影響成年海馬神經新生， suggering 突觸重塑為其抗創傷機制的關鍵。</p>
+<div class="pico-grid">
+<div class="pico-item"><span class="pico-label">P</span><span class="pico-text">成年雄性 Wistar 大鼠，經歷背景恐懼條件化</span></div>
+<div class="pico-item"><span class="pico-label">I</span><span class="pico-text">口服 Ayahuasca (60 mg/kg) 在恐懼記憶檢索前20分鐘或3小時後給予</span></div>
+<div class="pico-item"><span class="pico-label">C</span><span class="pico-text">生理食鹽水（H₂O）對照組</span></div>
+<div class="pico-item"><span class="pico-label">O</span><span class="pico-text">凍結行動顯著減少；CA1、CA3、齒狀回及前葉皮質樹突棘密度增加；樹突分支與長度在前葉皮質依給藥時間改變；無影響成年海馬神經新生（DCX染色）</span></div>
+</div>
+<div class="card-footer">
+<span class="tag">PTSD</span><span class="tag">5-HT2A</span><span class="tag">神經可塑性</span><span class="tag">記憶重構</span><span class="tag">迷幻輔助治療</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42864580/' target='_blank'>閱讀原文 →</a>
+</div>
+</div>
+<div class="news-card featured">
+<div class="card-header">
+<span class="rank-badge">#3</span>
+<span class="emoji-icon">🌿</span>
+<span class="utility-mid">中實用性</span>
+</div>
+<h3>極低劑量THC急性給藥減輕慢性壓力小鼠模型中之焦慮様行為，經由Elmo1調節突觸可塑性與糖皮質激素訊號</h3>
+<p class="journal-source">Journal of molecular neuroscience : MN &middot; Acute Ultra Low Dose THC Attenuates Anxiety-Like Behavior in a Mouse Model for Major-Depressive Disorder.</p>
+<p>極低劑量THC（0.002 mg/kg）在慢性壓力誘導之抑鬱小鼠模型中減少焦慮様行為，並經由下調Elmo1與 glucocorticoids 相關 mRNA 調節突觸可塑性，支持其具潛在抗焦慮治療價值。</p>
+<div class="pico-grid">
+<div class="pico-item"><span class="pico-label">P</span><span class="pico-text">經慢性輕度壓力（CMS）誘導之抑鬱様行為小鼠模型（Major Depressive Disorder, MDD）</span></div>
+<div class="pico-item"><span class="pico-label">I</span><span class="pico-text">急性腹腔注射極低劑量 THC (0.002 mg/kg)</span></div>
+<div class="pico-item"><span class="pico-label">C</span><span class="pico-text">生理食鹽水對照組</span></div>
+<div class="pico-item"><span class="pico-label">O</span><span class="pico-text">焦慮様行為顯著減少；NGS證實Elmo1 domain containing 1 (Elmod1) 為分子介導者；glutocorticoids 相關 mRNA 參與其抗焦慮效應</span></div>
+</div>
+<div class="card-footer">
+<span class="tag">焦慮症</span><span class="tag">憂鬱症</span><span class="tag">THC</span><span class="tag">神經可塑性</span><span class="tag">藥理學</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42864498/' target='_blank'>閱讀原文 →</a>
+</div>
+</div>
+<div class="news-card featured">
+<div class="card-header">
+<span class="rank-badge">#4</span>
+<span class="emoji-icon">🐛</span>
+<span class="utility-mid">中實用性</span>
+</div>
+<h3>裸體動物模型顯示psilocybin增強條件置偏好學習，支持進化保守的5-HT介導神經可塑性假設</h3>
+<p class="journal-source">Behavioural pharmacology &middot; Psilocybin enhances conditioned place preference learning in planarians.</p>
+<p>在原生動物（扁平蟲）模型中，單次暴露於5 µM psilocybin 顯著增強其對 sucrose-paired light 的偏好學習，效果持續至少6天，支持迷幻藥經由古老5-HT系統調節神經可塑性以增強贏性關聯學習。</p>
+<div class="pico-grid">
+<div class="pico-item"><span class="pico-label">P</span><span class="pico-text">扁形動物（planaria）</span></div>
+<div class="pico-item"><span class="pico-label">I</span><span class="pico-text">單次暴露於 5 µM psilocybin</span></div>
+<div class="pico-item"><span class="pico-label">C</span><span class="pico-text">未處理對照組</span></div>
+<div class="pico-item"><span class="pico-label">O</span><span class="pico-text">處理組在光與 sucrose 配對後，偏好學習顯著增強（時間×組×藥物交互作用 F(2,38)=3.3, p<0.05），效果持續≥6天</span></div>
+</div>
+<div class="card-footer">
+<span class="tag">psilocybin</span><span class="tag">神經可塑性</span><span class="tag">5-HT2A</span><span class="tag">學習</span><span class="tag">意識研究</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42860751/' target='_blank'>閱讀原文 →</a>
+</div>
+</div>
+<div class="news-card featured">
+<div class="card-header">
+<span class="rank-badge">#5</span>
+<span class="emoji-icon">💊</span>
+<span class="utility-mid">中實用性</span>
+</div>
+<h3>探討ketamine在治療抵抗性抑鬱中的生醫與迷幻輔助療法模式：是否依憂鬱亞型或童年創傷而異？</h3>
+<p class="journal-source">Australasian psychiatry : bulletin of Royal Australian and New Zealand College of Psychiatrists &middot; Ketamine administered biomedically or as psychedelic-assisted therapy in treatment-resistant depression: Differing efficacy based on depressive subtype or presence of childhood trauma?</p>
+<p>初步非隨機開放標籤結果顯示，生醫ketamine在 melancholic 抑鬱亞型中可能優於 non-melancholic ，但強調目前缺乏ketamine結合心理治療的實證，提出需以憂鬱亞型與童年創傷為變量進行未來實證研究。</p>
+<div class="pico-grid">
+<div class="pico-item"><span class="pico-label">P</span><span class="pico-text">治療抵抗性抑鬱（TRD）患者</span></div>
+<div class="pico-item"><span class="pico-label">I</span><span class="pico-text">生醫ketamine 或 ketamine + 心理治療（迷幻輔助模式）</span></div>
+<div class="pico-item"><span class="pico-label">C</span><span class="pico-text">未明確對照（開放標籤初步觀察）</span></div>
+<div class="pico-item"><span class="pico-label">O</span><span class="pico-text">生醫ketamine在Sydney Melancholia Prototypic Index篩選之melancholic抑鬱中可能較有效；ketamine+心理治療之效果尚未建立；需進一步研究憂鬱亞型與童年創傷的交互效應</span></div>
+</div>
+<div class="card-footer">
+<span class="tag">ketamine</span><span class="tag">憂鬱症</span><span class="tag">心理治療整合</span><span class="tag">臨床試驗設計</span><span class="tag">童年創傷</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42865326/' target='_blank'>閱讀原文 →</a>
+</div>
+</div>
+</div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>📚</span>其他值得關注的文獻</div><div class="news-card">
+<div class="card-header-row">
+<span class="emoji-sm">🧠</span>
+<span class="utility-high utility-sm">高</span>
+</div>
+<h3>MDMA輔助治療創傷後壓力症候群的活系統檢討與元分析：開放資源證明其短期療效優於安慰劑</h3>
+<p class="journal-source">Neuropsychopharmacology : official publication of the American College of Neuropsychopharmacology</p>
+<p>基於6項隨機對照試驗（n=286）的活系統檢討顯示，MDMA輔助療法顯著降低PTSD症狀（Hedges' g = -0.71），提高反應與緩解率，提供目前最可靠的迷幻輔助治療臨床證據。</p>
+<div class="card-footer">
+<span class="tag">PTSD</span><span class="tag">MDMA</span><span class="tag">迷幻輔助治療</span><span class="tag">臨床試驗設計</span><span class="tag">神經生物學</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42860436/' target='_blank'>PubMed →</a>
+</div>
+</div>
+<div class="news-card">
+<div class="card-header-row">
+<span class="emoji-sm">🧬</span>
+<span class="utility-high utility-sm">高</span>
+</div>
+<h3>Ayahuasca 損害恐懼記憶重構並促進海馬與前葉皮質快速突觸可塑性，非經由成年神經新生</h3>
+<p class="journal-source">Molecular neurobiology</p>
+<p>Ayahuasca（含DMT）在記憶重構期間給藥可顯著減少凍結行為（ fear memory ），並增加海馬與前葉皮質的樹突棘密度與分支複雜度，但不影響成年海馬神經新生， suggering 突觸重塑為其抗創傷機制的關鍵。</p>
+<div class="card-footer">
+<span class="tag">PTSD</span><span class="tag">5-HT2A</span><span class="tag">神經可塑性</span><span class="tag">記憶重構</span><span class="tag">迷幻輔助治療</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42864580/' target='_blank'>PubMed →</a>
+</div>
+</div>
+<div class="news-card">
+<div class="card-header-row">
+<span class="emoji-sm">🌿</span>
+<span class="utility-mid utility-sm">中</span>
+</div>
+<h3>極低劑量THC急性給藥減輕慢性壓力小鼠模型中之焦慮様行為，經由Elmo1調節突觸可塑性與糖皮質激素訊號</h3>
+<p class="journal-source">Journal of molecular neuroscience : MN</p>
+<p>極低劑量THC（0.002 mg/kg）在慢性壓力誘導之抑鬱小鼠模型中減少焦慮様行為，並經由下調Elmo1與 glucocorticoids 相關 mRNA 調節突觸可塑性，支持其具潛在抗焦慮治療價值。</p>
+<div class="card-footer">
+<span class="tag">焦慮症</span><span class="tag">憂鬱症</span><span class="tag">THC</span><span class="tag">神經可塑性</span><span class="tag">藥理學</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42864498/' target='_blank'>PubMed →</a>
+</div>
+</div>
+<div class="news-card">
+<div class="card-header-row">
+<span class="emoji-sm">🐛</span>
+<span class="utility-mid utility-sm">中</span>
+</div>
+<h3>裸體動物模型顯示psilocybin增強條件置偏好學習，支持進化保守的5-HT介導神經可塑性假設</h3>
+<p class="journal-source">Behavioural pharmacology</p>
+<p>在原生動物（扁平蟲）模型中，單次暴露於5 µM psilocybin 顯著增強其對 sucrose-paired light 的偏好學習，效果持續至少6天，支持迷幻藥經由古老5-HT系統調節神經可塑性以增強贏性關聯學習。</p>
+<div class="card-footer">
+<span class="tag">psilocybin</span><span class="tag">神經可塑性</span><span class="tag">5-HT2A</span><span class="tag">學習</span><span class="tag">意識研究</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42860751/' target='_blank'>PubMed →</a>
+</div>
+</div>
+<div class="news-card">
+<div class="card-header-row">
+<span class="emoji-sm">💊</span>
+<span class="utility-mid utility-sm">中</span>
+</div>
+<h3>探討ketamine在治療抵抗性抑鬱中的生醫與迷幻輔助療法模式：是否依憂鬱亞型或童年創傷而異？</h3>
+<p class="journal-source">Australasian psychiatry : bulletin of Royal Australian and New Zealand College of Psychiatrists</p>
+<p>初步非隨機開放標籤結果顯示，生醫ketamine在 melancholic 抑鬱亞型中可能優於 non-melancholic ，但強調目前缺乏ketamine結合心理治療的實證，提出需以憂鬱亞型與童年創傷為變量進行未來實證研究。</p>
+<div class="card-footer">
+<span class="tag">ketamine</span><span class="tag">憂鬱症</span><span class="tag">心理治療整合</span><span class="tag">臨床試驗設計</span><span class="tag">童年創傷</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42865326/' target='_blank'>PubMed →</a>
+</div>
+</div>
+</div>
+
+  <div class='topic-section section'><div class='section-title'><span class='section-icon'>📊</span>主題分佈</div><div class="topic-row">
+<span class="topic-name">憂鬱症</span>
+<div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+<span class="topic-count">3</span>
+</div>
+<div class="topic-row">
+<span class="topic-name">PTSD</span>
+<div class="topic-bar-bg"><div class="topic-bar" style="width:66%"></div></div>
+<span class="topic-count">2</span>
+</div>
+<div class="topic-row">
+<span class="topic-name">焦慮症</span>
+<div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+<span class="topic-count">1</span>
+</div>
+</div>
+
+  <div class='keywords-section section'><div class='section-title'><span class='section-icon'>🏷️</span>關鍵字</div><div class='keywords'><span class="keyword">MDMA</span><span class="keyword">PTSD</span><span class="keyword">Ayahuasca</span><span class="keyword">THC</span><span class="keyword">psilocybin</span><span class="keyword">ketamine</span><span class="keyword">神經可塑性</span><span class="keyword">5-HT2A</span><span class="keyword">記憶重構</span><span class="keyword">焦慮症</span><span class="keyword">憂鬱症</span><span class="keyword">迷幻輔助治療</span></div></div>
+
+  <div class="clinic-banner">
+    <a href="https://www.leepsyclinic.com/" class="clinic-link" target="_blank">
+      <span class="clinic-icon">🏥</span>
+      <span class="clinic-name">李政洋身心診所首頁</span>
+      <span class="clinic-arrow">→</span>
+    </a>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed &middot; 分析模型：nvidia/nemotron-3-super-120b-a12b</span>
+    <span><a href="https://github.com/u8901006/psychedelic-brain">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
