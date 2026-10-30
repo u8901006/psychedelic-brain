@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Psychedelic Brain &middot; 迷幻研究文獻日報 &middot; 2026年10月31日（週六）</title>
+<meta name="description" content="2026年10月31日（週六） 迷幻研究（Psychedelic Research）最新文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<meta property="og:title" content="Psychedelic Brain &middot; 2026年10月31日（週六）"/>
+<meta property="og:description" content="迷幻研究每日文獻精選"/>
+<meta property="og:type" content="article"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍄</text></svg>"/>
+<style>
+  :root { --bg: #f6f1e8; --surface: #fffaf2; --line: #d8c5ab; --text: #2b2118; --muted: #766453; --accent: #8c4f2b; --accent-soft: #ead2bf; --card-bg: color-mix(in srgb, var(--surface) 92%, white); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: radial-gradient(circle at top, #fff6ea 0, var(--bg) 55%, #ead8c6 100%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 48px; height: 48px; border-radius: 14px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 20px rgba(140,79,43,0.25); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid var(--line); color: var(--accent); }
+  .badge-count { background: rgba(140,79,43,0.06); border: 1px solid var(--line); color: var(--muted); }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(61,36,15,0.06); animation: fadeUp 0.5s ease 0.1s both; }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(61,36,15,0.04); transition: background 0.2s, border-color 0.2s, transform 0.2s; }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .news-card.featured:hover { border-color: var(--accent); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: var(--accent); color: #fff7f0; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--accent); text-decoration: none; opacity: 0.7; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: #5a7a3a; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(90,122,58,0.1); border-radius: 4px; }
+  .utility-mid { color: #9f7a2e; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(159,122,46,0.1); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(118,100,83,0.08); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(255,253,249,0.8); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff7f0; background: var(--accent); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 100px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), #c47a4a); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--accent); width: 24px; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid var(--line); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: background 0.2s; }
+  .keyword:hover { background: rgba(140,79,43,0.18); }
+  .clinic-banner { margin-top: 48px; animation: fadeUp 0.5s ease 0.4s both; }
+  .clinic-link { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(61,36,15,0.04); }
+  .clinic-link:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .clinic-icon { font-size: 28px; flex-shrink: 0; }
+  .clinic-name { font-size: 15px; font-weight: 700; color: var(--text); flex: 1; }
+  .clinic-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 70px; font-size: 11px; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">🍄</div>
+    <div class="header-text">
+      <h1>Psychedelic Brain &middot; 迷幻研究文獻日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年10月31日（週六）</span>
+        <span class="badge badge-count">📊 10 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + NVIDIA AI</span>
+      </div>
+    </div>
+  </header>
+
+  <div class='summary-card'><h2>📋 今日文獻趨勢</h2><p class='summary-text'>今日共收錄 10 篇迷幻研究文獻。</p></div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>⭐</span>今日精選 TOP Picks</div><div class="news-card featured">
+<div class="card-header">
+<span class="rank-badge">#1</span>
+<span class="emoji-icon">🔬</span>
+<span class="utility-mid">中實用性</span>
+</div>
+<h3>The effect of psychedelics on associative learning: A systematic review.</h3>
+<p class="journal-source">Neuroscience and biobehavioral reviews &middot; The effect of psychedelics on associative learning: A systematic review.</p>
+<p>Psychedelics are emerging as potential treatments for neuropsychiatric conditions, with evidence suggesting a single administration can lead to enduring behavioural changes. While the underlying putat</p>
+
+<div class="card-footer">
+<span class="tag">Associative learning</span><span class="tag">Classical conditioning</span><span class="tag">Learning</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42702287/' target='_blank'>閱讀原文 →</a>
+</div>
+</div>
+<div class="news-card featured">
+<div class="card-header">
+<span class="rank-badge">#2</span>
+<span class="emoji-icon">🔬</span>
+<span class="utility-mid">中實用性</span>
+</div>
+<h3>Antidepressants and cognitive function in major depressive disorder: Mechanisms, clinical evidence, and implications for precision treatment.</h3>
+<p class="journal-source">European journal of pharmacology &middot; Antidepressants and cognitive function in major depressive disorder: Mechanisms, clinical evidence, and implications for precision treatment.</p>
+<p>Cognitive impairment is a core feature of major depressive disorder (MDD) and significantly impairs functional recovery. This review summarizes current evidence on the effects of antidepressants on co</p>
+
+<div class="card-footer">
+<span class="tag">Antidepressants</span><span class="tag">Cognitive function</span><span class="tag">Cognitive impairment</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42869167/' target='_blank'>閱讀原文 →</a>
+</div>
+</div>
+<div class="news-card featured">
+<div class="card-header">
+<span class="rank-badge">#3</span>
+<span class="emoji-icon">🔬</span>
+<span class="utility-mid">中實用性</span>
+</div>
+<h3>Extracellular flux analysis and proteomic profiling indicate ibogaine promotes synaptic plasticity and neural repair by a metabolic preconditioning mechanism.</h3>
+<p class="journal-source">European journal of pharmacology &middot; Extracellular flux analysis and proteomic profiling indicate ibogaine promotes synaptic plasticity and neural repair by a metabolic preconditioning mechanism.</p>
+<p>We have examined how ibogaine may enhance synaptic plasticity and neural repair. Extracellular efflux analysis showed that ibogaine (3, 10 or 30 μM) produced a rapid (<5 min) and concentration-depende</p>
+
+<div class="card-footer">
+<span class="tag">Extracellular efflux analysis</span><span class="tag">Ibogaine</span><span class="tag">Neural repair</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42874905/' target='_blank'>閱讀原文 →</a>
+</div>
+</div>
+<div class="news-card featured">
+<div class="card-header">
+<span class="rank-badge">#4</span>
+<span class="emoji-icon">🔬</span>
+<span class="utility-mid">中實用性</span>
+</div>
+<h3>Mechanisms of vesicular monoamine transporter 2 modulation by amphetamines and lobeline.</h3>
+<p class="journal-source">Cell reports &middot; Mechanisms of vesicular monoamine transporter 2 modulation by amphetamines and lobeline.</p>
+<p>Amphetamine-type stimulants (ATSs) disrupt the brain monoaminergic system and strongly stimulate motivation, movement, and addiction. Vesicular monoamine transporter 2 (VMAT2) plays a vital role in mo</p>
+
+<div class="card-footer">
+<span class="tag">CP: neuroscience</span><span class="tag">DAT</span><span class="tag">MDMA</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42932304/' target='_blank'>閱讀原文 →</a>
+</div>
+</div>
+<div class="news-card featured">
+<div class="card-header">
+<span class="rank-badge">#5</span>
+<span class="emoji-icon">🔬</span>
+<span class="utility-mid">中實用性</span>
+</div>
+<h3>Safety and Efficacy of Psilocybin During Anticancer Treatment: A Phase II Trial Secondary Analysis.</h3>
+<p class="journal-source">Journal of pain and symptom management &middot; Safety and Efficacy of Psilocybin During Anticancer Treatment: A Phase II Trial Secondary Analysis.</p>
+<p>CONTEXT: Psilocybin-assisted therapy has demonstrated rapid antidepressant effects in patients with cancer, but most trials have excluded individuals receiving active systemic anticancer treatment, li</p>
+
+<div class="card-footer">
+<span class="tag">Psilocybin</span><span class="tag">cancer</span><span class="tag">depression</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42546985/' target='_blank'>閱讀原文 →</a>
+</div>
+</div>
+</div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>📚</span>其他值得關注的文獻</div><div class="news-card">
+<div class="card-header-row">
+<span class="emoji-sm">📄</span>
+<span class="utility-mid utility-sm">中</span>
+</div>
+<h3>Integrating Holistic Communication into Psychedelic-Assisted Therapies in Hospice and Palliative Care: An Approach Based on Peplau's Theory.</h3>
+<p class="journal-source">Journal of holistic nursing : official journal of the American Holistic Nurses' Association</p>
+<p>Psychedelic-assisted therapy (PAT) has shown promising results in alleviating psychological and existential suffering among individuals with serious i</p>
+<div class="card-footer">
+<span class="tag">hospice</span><span class="tag">interpersonal relations</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/40900021/' target='_blank'>PubMed →</a>
+</div>
+</div>
+<div class="news-card">
+<div class="card-header-row">
+<span class="emoji-sm">📄</span>
+<span class="utility-mid utility-sm">中</span>
+</div>
+<h3>Prior trauma shapes the effects of psilocybin on stress sensitization in mice.</h3>
+<p class="journal-source">Neuroscience letters</p>
+<p>Exposure to traumatic events induces persistent alterations in defensive behavior that extend beyond associative fear memories, including heightened r</p>
+<div class="card-footer">
+<span class="tag">Classical hallucinogens</span><span class="tag">Defensive behavior</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42767398/' target='_blank'>PubMed →</a>
+</div>
+</div>
+<div class="news-card">
+<div class="card-header-row">
+<span class="emoji-sm">📄</span>
+<span class="utility-mid utility-sm">中</span>
+</div>
+<h3>Efficacy, safety, and tolerability of lysergic acid diethylamide for the treatment of depressive symptoms: A meta-analysis and systematic review.</h3>
+<p class="journal-source">Journal of psychopharmacology (Oxford, England)</p>
+<p>BACKGROUND: Since the Food and Drug Administration designated lysergic acid diethylamide (LSD) as a "breakthrough" treatment for generalized anxiety d</p>
+<div class="card-footer">
+<span class="tag">LSD</span><span class="tag">depression</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42960975/' target='_blank'>PubMed →</a>
+</div>
+</div>
+<div class="news-card">
+<div class="card-header-row">
+<span class="emoji-sm">📄</span>
+<span class="utility-mid utility-sm">中</span>
+</div>
+<h3>Assessing the potential of wastewater-based epidemiology to evaluate the impact of COVID-19 policy changes on stimulant use across 17 countries.</h3>
+<p class="journal-source">The International journal on drug policy</p>
+<p>BACKGROUND AND AIMS: A limited number of studies have employed wastewater-based epidemiology (WBE) to assess the impact of specific COVID-19 public he</p>
+<div class="card-footer">
+<span class="tag">COVID-19 interventions</span><span class="tag">Modeling</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42731532/' target='_blank'>PubMed →</a>
+</div>
+</div>
+<div class="news-card">
+<div class="card-header-row">
+<span class="emoji-sm">📄</span>
+<span class="utility-mid utility-sm">中</span>
+</div>
+<h3>Evaluating whether a therapeutic dose of ketamine exposure during adolescence influences adult vulnerability in rats to commonly abused drugs.</h3>
+<p class="journal-source">Psychopharmacology</p>
+<p>Rationale Ketamine has emerged as a rapid-acting antidepressant drug for treatment-resistant depression in adults and is currently evaluated for adole</p>
+<div class="card-footer">
+<span class="tag">Adolescence</span><span class="tag">Ketamine</span>
+<a href='https://pubmed.ncbi.nlm.nih.gov/42928272/' target='_blank'>PubMed →</a>
+</div>
+</div>
+</div>
+
+  
+
+  <div class='keywords-section section'><div class='section-title'><span class='section-icon'>🏷️</span>關鍵字</div><div class='keywords'><span class="keyword">psychedelic</span><span class="keyword">psilocybin</span><span class="keyword">MDMA</span></div></div>
+
+  <div class="clinic-banner">
+    <a href="https://www.leepsyclinic.com/" class="clinic-link" target="_blank">
+      <span class="clinic-icon">🏥</span>
+      <span class="clinic-name">李政洋身心診所首頁</span>
+      <span class="clinic-arrow">→</span>
+    </a>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed &middot; 分析模型：nvidia/nemotron-3-super-120b-a12b</span>
+    <span><a href="https://github.com/u8901006/psychedelic-brain">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
